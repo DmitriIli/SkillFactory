@@ -16,11 +16,20 @@ class GameDesk():
 
 class Ship():
     coord_start = (0, 0)
-    direction = 'horizontal'
-    def __init__(self):
-        print('ввести координату первой клетки коробля, его длинну и направление')
+    length = 0
 
-    def
+    @property
+    def coord_start(self):
+        return self.coord_start
 
+    @coord_start.setter
+    def coord_start(self, value):
+        self.coord_start = value
 
+    @property
+    def length(self):
+        return self.length
 
+    @length.setter
+    def length(self, value):
+        return self.length
