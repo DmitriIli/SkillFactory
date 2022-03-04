@@ -55,27 +55,30 @@ class Player:
         self.name = name
         self.desk = GameDesk(self.name)
 
-    def input_value(self):
+    def input_value(self, l):
         while 1:
-            print('ввести координаты первой клетки коробля(x,y) от 1 до 6 и размер коробля от 1 до 3. Расстояние между '
+            print('ввести координаты первой клетки коробля(x,y) от 1 до 6. Расстояние между '
                   'короблями должно состоявлять не менее одной клетки: ')
             try:
                 print('x: ')
                 x = int(input().split()[:1][0])
                 print('y: ')
                 y = int(input().split()[:1][0])
-                print('len: ')
-                l = int(input().split()[:1][0])
-                if not (x in (1, 2, 3, 4, 5, 6) and y in (1, 2, 3, 4, 5, 6) and l in (1, 2, 3)):
+                if not (x in (1, 2, 3, 4, 5, 6) and y in (1, 2, 3, 4, 5, 6)):
                     raise ValueError
+                elif :
 
             except ValueError:
                 print('некорректный ввод')
             else:
                 return x, y, l
 
+    def init_ships(self):
+        print('заполнение игровой доски')
+        print('корабль длинной в 3 клетки')
+        return self.input_value(3)
 
-player1 = Player('игрок')
-player1.desk.print_pole()
-move = player1.input_value()
-print(type(move), move)
+
+player1 = Player('Игрок')
+print(player1.init_ships())
+
