@@ -45,18 +45,37 @@ class Player:
     name = ''
     list_of_move = []
     desk = []
+    ships = []
+    count_cell = 11
+    count_3cells = 0
+    count_2sells = 0
+    count_1cell = 0
 
     def __init__(self, name):
         self.name = name
         self.desk = GameDesk(self.name)
 
-    def make_move(self):
+    def input_value(self):
         while 1:
-            print('ввести координаты (x,y) от 1 до 6 через пробел: ')
+            print('ввести координаты первой клетки коробля(x,y) от 1 до 6 и размер коробля от 1 до 3. Расстояние между '
+                  'короблями должно состоявлять не менее одной клетки: ')
             try:
-                coor_input = input().split()[:2]
-            except
+                print('x: ')
+                x = int(input().split()[:1][0])
+                print('y: ')
+                y = int(input().split()[:1][0])
+                print('len: ')
+                l = int(input().split()[:1][0])
+                if not (x in (1, 2, 3, 4, 5, 6) and y in (1, 2, 3, 4, 5, 6) and l in (1, 2, 3)):
+                    raise ValueError
+
+            except ValueError:
+                print('некорректный ввод')
+            else:
+                return x, y, l
 
 
 player1 = Player('игрок')
 player1.desk.print_pole()
+move = player1.input_value()
+print(type(move), move)
